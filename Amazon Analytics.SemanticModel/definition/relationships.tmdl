@@ -1,0 +1,5 @@
+relationship a64a008b-9d44-4e96-822f-2c68cca2c0cb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Amazon.Date
+	toColumn: LocalDateTable_b9e61d49-8ed6-4c3f-832d-b6af01725148.Date
+
