@@ -1,0 +1,81 @@
+table Date
+	lineageTag: 890e4eda-740f-4d97-931f-3273359d5f90
+
+	column Date
+		formatString: dd/mm/yyyy
+		lineageTag: 96b326fc-dd70-4e9f-9592-f906fd319fb6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: ef4e111f-2edc-4c66-9f51-2fe5598eee87
+			defaultHierarchy: LocalDateTable_d1818ed6-5a79-482a-a3b4-f9bf4eff9b93.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Year
+		formatString: 0
+		lineageTag: 13557be1-5cfb-4c78-b5ce-4a4d8a77f78f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateAsInteger
+		lineageTag: 75e30028-d72e-45a4-b40e-33190462d4bf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DateAsInteger]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		lineageTag: ddac663e-bd0c-44bd-b27d-63bd6d115b84
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthNumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		lineageTag: 5dc91ecc-34a8-46d2-933b-d44d61f282f7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DayOfWeek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: ad2bc514-17a3-4bbf-bc8e-f2dafc4eca42
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNameLong
+		lineageTag: a683373c-9fdf-4f2c-a2a0-e0f5097da017
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthNameLong]
+		sortByColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date-9b8ea4b3-7206-4a8d-aff9-b65073b747e1 = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(CALENDAR(MIN(FactSales[DateKey]),MAX(FactSales[DateKey])),
+				"Year",YEAR([Date]),
+				"DateAsInteger",FORMAT([Date],"YYYYMMDD"),
+				"MonthNumber",FORMAT([Date],"MM"),
+				"MonthNameLong",FORMAT([Date],"mmmm"),
+				"DayOfWeek",FORMAT([Date],"dddd"),
+				"Quarter", "Q" & FORMAT([Date], "Q"))
+

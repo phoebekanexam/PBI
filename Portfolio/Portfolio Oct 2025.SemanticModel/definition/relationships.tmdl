@@ -1,0 +1,122 @@
+relationship eef41178-e944-4ca8-8740-14ee5dc38e16
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomer.BirthDate
+	toColumn: LocalDateTable_e120b02b-d310-465e-becf-4f059b4f102d.Date
+
+relationship 6bfe02a7-07db-427e-a2e6-21bf87f951db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomer.DateFirstPurchase
+	toColumn: LocalDateTable_78c01e90-0816-4cc7-ab78-24c0d91bc41c.Date
+
+relationship bd85f663-e08f-41ab-b5b1-800d35282fe9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProduct.AvailableForSaleDate
+	toColumn: LocalDateTable_3c50e7f0-f745-4157-b2a5-5abf294c7c47.Date
+
+relationship 05bb5eca-ba81-4999-8d0a-e9c0931480ac
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProductCategory.LoadDate
+	toColumn: LocalDateTable_68e732a7-c515-4f40-b9e5-0223fa473291.Date
+
+relationship cc00ffae-10e7-405f-a194-0657b07f0839
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProductCategory.UpdateDate
+	toColumn: LocalDateTable_a96108c7-632f-4e08-b623-066f61782412.Date
+
+relationship 9dc74ac0-3a73-4b6a-97ac-899a4410220f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProductSubcategory.LoadDate
+	toColumn: LocalDateTable_6264f6da-a76d-4a3e-94ac-7635969b45f9.Date
+
+relationship 573d9a78-e922-42cd-bbb7-767f6273a7bf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProductSubcategory.UpdateDate
+	toColumn: LocalDateTable_69a4aa61-8005-44b8-a597-495cb0913b60.Date
+
+relationship dc2e061e-4028-41a9-99ab-00b588c4efc5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactSales.LoadDate
+	toColumn: LocalDateTable_4aa5a6f2-ca93-46be-897c-0bac40da2fb1.Date
+
+relationship 332d2cc8-c90d-4685-b929-a345f7fcb486
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactSales.UpdateDate
+	toColumn: LocalDateTable_50b07d97-540f-405a-b4a9-20bad2ecac54.Date
+
+relationship 571e6bf0-8d29-4fa3-bf7f-695a872d2f1d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimStore.OpenDate
+	toColumn: LocalDateTable_e4930cb1-3556-45d9-8a73-02539726148c.Date
+
+relationship 0d571345-efd7-4bdf-aacb-72b65f9232e4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimStore.CloseDate
+	toColumn: LocalDateTable_469bc722-efac-4620-9f23-996683efe3f0.Date
+
+relationship 4b23bbd7-6918-4ee0-b24c-f537666af31d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimStore.LastRemodelDate
+	toColumn: LocalDateTable_ef55c76c-1da9-4d8c-add6-9c68759ec309.Date
+
+relationship 4879b081-dab4-45c3-a4ac-98c1d1c46f61
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimStore.LoadDate
+	toColumn: LocalDateTable_707f3d33-1b8c-45b2-8a55-b8552a6489ec.Date
+
+relationship 6eca1298-cef6-4c86-aa3b-23e5a0e86279
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimStore.UpdateDate
+	toColumn: LocalDateTable_99d252bd-79f0-4060-b14d-87150e8231e2.Date
+
+relationship 7e9331b6-bf21-4424-b36e-179ce746ce29
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimGeography.LoadDate
+	toColumn: LocalDateTable_20e847e5-c8ee-41f2-ae25-142692751834.Date
+
+relationship 2870a497-8cba-4d8a-956c-192c4c7b9501
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimGeography.UpdateDate
+	toColumn: LocalDateTable_40ba8b19-ab8f-48ce-b8b6-37a4a65d7cff.Date
+
+relationship 72952175-3d38-4083-bb9f-096999e5952f
+	fromColumn: DimProduct.ProductSubcategoryKey
+	toColumn: DimProductSubcategory.ProductSubcategoryKey
+
+relationship 48dfd531-1225-47a5-bde5-923d49507267
+	fromColumn: FactOnlineSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 5618460f-cd48-42ab-b330-69bb802c3c5f
+	fromColumn: FactSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 943fce55-819a-4558-a7da-24db7b673e61
+	fromColumn: DimProductSubcategory.ProductCategoryKey
+	toColumn: DimProductCategory.ProductCategoryKey
+
+relationship 57c646a3-8673-46cf-974a-25fc5439f406
+	fromColumn: FactSales.StoreKey
+	toColumn: DimStore.StoreKey
+
+relationship ef4e111f-2edc-4c66-9f51-2fe5598eee87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date.Date
+	toColumn: LocalDateTable_d1818ed6-5a79-482a-a3b4-f9bf4eff9b93.Date
+
+relationship f07c3837-0aae-4698-be67-81f0b601f619
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactOnlineSales.DateKey
+	toColumn: LocalDateTable_773a23ac-9c50-4cda-beba-6f8b034541b7.Date
+
+relationship 5200c6b9-23ed-4581-9417-74e79339a05d
+	fromColumn: FactSales.DateKey
+	toColumn: Date.Date
+
+relationship 1265dae3-3748-4bae-8e5e-576fa8b23274
+	fromColumn: DimStore.GeographyKey
+	toColumn: DimGeography.GeographyKey
+
+relationship eced1ccb-afd8-4c39-8da5-b8bf36afb50a
+	fromColumn: FactOnlineSales.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+

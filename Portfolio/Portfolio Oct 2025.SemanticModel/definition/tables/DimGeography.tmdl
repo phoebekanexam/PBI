@@ -1,0 +1,118 @@
+table DimGeography
+	lineageTag: 0b2d41d9-7493-4c9d-a4b0-68eaa4c4cba9
+
+	measure 'Dynamic Country' = CONCATENATE("Country: ",IF(SELECTEDVALUE(DimGeography[Country]) = "", "All",SELECTEDVALUE(DimGeography[Country])))
+		lineageTag: 500fc21c-5f0d-4ecf-be03-9212ea981a1d
+
+	measure 'Dynamic Continent' = CONCATENATE("Continent: ",IF(SELECTEDVALUE(DimGeography[Continent]) = "", "All",SELECTEDVALUE(DimGeography[Continent])))
+		lineageTag: b2828ea8-813d-4765-9145-f2c084326d1d
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c9f80b2c-7160-40d2-9a5e-7ac0585d96df
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyType
+		dataType: string
+		lineageTag: 86efb0f1-da16-4609-8147-c657b5270663
+		summarizeBy: none
+		sourceColumn: GeographyType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Continent
+		dataType: string
+		lineageTag: 444f58fa-4dfb-4de8-8c86-50d3981aa18b
+		summarizeBy: none
+		sourceColumn: Continent
+
+		annotation SummarizationSetBy = Automatic
+
+	column CityName
+		dataType: string
+		lineageTag: 0f85ac3c-1c64-4f45-8079-23dd523443a4
+		summarizeBy: none
+		sourceColumn: CityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: cc781615-9511-4c3e-957c-1208da5b15be
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 9cf79d6e-c943-4c56-b54e-b98bc064a67b
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geometry
+		dataType: string
+		lineageTag: e5172769-402d-4ff7-8d8e-53d3fcd773d8
+		summarizeBy: none
+		sourceColumn: Geometry
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETLLoadID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bf86767-c545-4d7f-ac12-61e9684cf12c
+		summarizeBy: count
+		sourceColumn: ETLLoadID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoadDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 14ee5a16-1bf5-4cbe-b484-c821e1f27694
+		summarizeBy: none
+		sourceColumn: LoadDate
+
+		variation Variation
+			isDefault
+			relationship: 7e9331b6-bf21-4424-b36e-179ce746ce29
+			defaultHierarchy: LocalDateTable_20e847e5-c8ee-41f2-ae25-142692751834.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b29735c2-eb4d-46dd-9b08-ae7c9e9d33a9
+		summarizeBy: none
+		sourceColumn: UpdateDate
+
+		variation Variation
+			isDefault
+			relationship: 2870a497-8cba-4d8a-956c-192c4c7b9501
+			defaultHierarchy: LocalDateTable_40ba8b19-ab8f-48ce-b8b6-37a4a65d7cff.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimGeography-3f315fc7-61cd-4c89-a2dd-03ee2b2cda6d = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-NVDOJHQ\SQLEXPRESS01", "ContosoRetailDW"),
+				    dbo_DimGeography = Source{[Schema="dbo",Item="DimGeography"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_DimGeography,{"DimCustomer", "DimSalesTerritory", "DimStore"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"RegionCountryName", "Country"}, {"ContinentName", "Continent"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,86 @@
+table DimProductCategory
+	lineageTag: 2a16017a-239c-4be9-811a-320d3a9205e4
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b4e53dd3-a6b6-4f0c-9865-8228e59b99bf
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryLabel
+		dataType: string
+		lineageTag: 7597dadb-b335-403d-81c2-a16001eff274
+		summarizeBy: none
+		sourceColumn: ProductCategoryLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryName
+		dataType: string
+		lineageTag: 84ac7063-3091-425b-a03d-19dd6a639333
+		summarizeBy: none
+		sourceColumn: ProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryDescription
+		dataType: string
+		lineageTag: 6492f22a-10ca-4a14-b386-357cb850f306
+		summarizeBy: none
+		sourceColumn: ProductCategoryDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETLLoadID
+		dataType: int64
+		formatString: 0
+		lineageTag: 72a3bb92-0149-4ea1-999e-d16f4750cc32
+		summarizeBy: count
+		sourceColumn: ETLLoadID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoadDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9bff61dc-bd8b-4a28-9b4e-51bb2cc060e5
+		summarizeBy: none
+		sourceColumn: LoadDate
+
+		variation Variation
+			isDefault
+			relationship: 05bb5eca-ba81-4999-8d0a-e9c0931480ac
+			defaultHierarchy: LocalDateTable_68e732a7-c515-4f40-b9e5-0223fa473291.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 44437823-abaf-40fc-b30c-e62d45972870
+		summarizeBy: none
+		sourceColumn: UpdateDate
+
+		variation Variation
+			isDefault
+			relationship: cc00ffae-10e7-405f-a194-0657b07f0839
+			defaultHierarchy: LocalDateTable_a96108c7-632f-4e08-b623-066f61782412.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProductCategory-b9546cbd-fb6a-4515-b054-7801fda62b5e = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-NVDOJHQ\SQLEXPRESS01", "ContosoRetailDW"),
+				    dbo_DimProductCategory = Source{[Schema="dbo",Item="DimProductCategory"]}[Data]
+				in
+				    dbo_DimProductCategory
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

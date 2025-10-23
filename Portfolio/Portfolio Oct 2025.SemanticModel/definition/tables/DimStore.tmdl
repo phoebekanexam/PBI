@@ -1,0 +1,255 @@
+table DimStore
+	lineageTag: 7f2a9f64-2dc8-4e66-a32b-fc2b3ad17890
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3799967b-d2b9-4d07-935a-c892d7aaa231
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d955598-c4d4-4e0c-84d8-50b5c2d6fcf1
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreManager
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ea5f4e0-fa59-43d2-bceb-121aef21b677
+		summarizeBy: sum
+		sourceColumn: StoreManager
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreType
+		dataType: string
+		lineageTag: 230fc5fd-511f-42dc-928b-08a2b11e933e
+		summarizeBy: none
+		sourceColumn: StoreType
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreName
+		dataType: string
+		lineageTag: 0e6859b0-fc3c-400b-a7c9-0aa5259444e9
+		summarizeBy: none
+		sourceColumn: StoreName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreDescription
+		dataType: string
+		lineageTag: 60cb6066-2357-40b3-a93a-48acba37b5c7
+		summarizeBy: none
+		sourceColumn: StoreDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: a4c8d66e-2319-4520-9629-35ed26eed68d
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 890f73d0-7148-4618-ac68-1001de391d33
+		summarizeBy: none
+		sourceColumn: OpenDate
+
+		variation Variation
+			isDefault
+			relationship: 571e6bf0-8d29-4fa3-bf7f-695a872d2f1d
+			defaultHierarchy: LocalDateTable_e4930cb1-3556-45d9-8a73-02539726148c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CloseDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eb8ad463-65be-4d79-a1a6-c25089cb8449
+		summarizeBy: none
+		sourceColumn: CloseDate
+
+		variation Variation
+			isDefault
+			relationship: 0d571345-efd7-4bdf-aacb-72b65f9232e4
+			defaultHierarchy: LocalDateTable_469bc722-efac-4620-9f23-996683efe3f0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntityKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4bdae998-0ce6-4137-a887-528c12c4b457
+		summarizeBy: count
+		sourceColumn: EntityKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCode
+		dataType: string
+		lineageTag: a6c99449-0111-416a-85f0-1ba55e0e4686
+		summarizeBy: none
+		sourceColumn: ZipCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCodeExtension
+		dataType: string
+		lineageTag: 4f20e65a-313f-407c-823b-e3771c8eff46
+		summarizeBy: none
+		sourceColumn: ZipCodeExtension
+
+		annotation SummarizationSetBy = Automatic
+
+	column StorePhone
+		dataType: string
+		lineageTag: aac63b34-78fc-41e3-acf2-893efe814bbe
+		summarizeBy: none
+		sourceColumn: StorePhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreFax
+		dataType: string
+		lineageTag: 6a47b6e1-1392-4320-96fc-b359f742acfa
+		summarizeBy: none
+		sourceColumn: StoreFax
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: 6cd448f2-28d0-490a-bde7-502c808c4c1d
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: f7cd728a-b713-44c0-8ae1-6786f649ccf2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CloseReason
+		dataType: string
+		lineageTag: 4498addc-9847-449b-9da5-5d80adf430db
+		summarizeBy: none
+		sourceColumn: CloseReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeCount
+		dataType: int64
+		formatString: 0
+		lineageTag: a3e8afaa-6a92-4950-b74a-8c7bcbd77a8a
+		summarizeBy: sum
+		sourceColumn: EmployeeCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column SellingAreaSize
+		dataType: double
+		lineageTag: 0db9547a-f18f-49ae-9d7f-7380598c3e34
+		summarizeBy: sum
+		sourceColumn: SellingAreaSize
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LastRemodelDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0486d046-9645-47d3-af38-8e71aadb198c
+		summarizeBy: none
+		sourceColumn: LastRemodelDate
+
+		variation Variation
+			isDefault
+			relationship: 4b23bbd7-6918-4ee0-b24c-f537666af31d
+			defaultHierarchy: LocalDateTable_ef55c76c-1da9-4d8c-add6-9c68759ec309.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeoLocation
+		dataType: string
+		lineageTag: 62922692-d56c-4b63-bf00-fc459a80b3a6
+		summarizeBy: none
+		sourceColumn: GeoLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geometry
+		dataType: string
+		lineageTag: bf80ed6d-49c1-4ca6-8317-9c1848b4fd77
+		summarizeBy: none
+		sourceColumn: Geometry
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETLLoadID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fae033c-d293-48ec-8329-40cb9c289c5b
+		summarizeBy: count
+		sourceColumn: ETLLoadID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoadDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 781c55b5-01de-416b-a2fa-48182bd2ffd3
+		summarizeBy: none
+		sourceColumn: LoadDate
+
+		variation Variation
+			isDefault
+			relationship: 4879b081-dab4-45c3-a4ac-98c1d1c46f61
+			defaultHierarchy: LocalDateTable_707f3d33-1b8c-45b2-8a55-b8552a6489ec.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ce16e330-1108-4f8a-a69c-4454841c3d7c
+		summarizeBy: none
+		sourceColumn: UpdateDate
+
+		variation Variation
+			isDefault
+			relationship: 6eca1298-cef6-4c86-aa3b-23e5a0e86279
+			defaultHierarchy: LocalDateTable_99d252bd-79f0-4060-b14d-87150e8231e2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimStore-876944a0-94c1-4fbb-a3f6-b67e4d55398a = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-NVDOJHQ\SQLEXPRESS01", "ContosoRetailDW"),
+				    dbo_DimStore = Source{[Schema="dbo",Item="DimStore"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_DimStore,{"DimGeography", "DimMachine", "FactITSLA", "FactInventory", "FactOnlineSales", "FactSales", "FactSalesQuota"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

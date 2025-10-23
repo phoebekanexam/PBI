@@ -1,0 +1,95 @@
+table DimProductSubcategory
+	lineageTag: a37862f5-724f-4dfe-afd9-c1ab1b254fde
+
+	column ProductSubcategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c87199b-fed4-4b34-ba8e-965ec4e0f2a7
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryLabel
+		dataType: string
+		lineageTag: 85b49c2b-459d-4a76-a9dd-9d5ac7924d9d
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryName
+		dataType: string
+		lineageTag: 4604cf9f-8dbe-4a68-95fc-23f0c4a86ab7
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryDescription
+		dataType: string
+		lineageTag: caf853d6-de48-418c-9641-89e101c796df
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: abc1924e-5903-45e6-bc3f-35aa8eb691aa
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETLLoadID
+		dataType: int64
+		formatString: 0
+		lineageTag: c5864a11-9bb5-4bde-abdd-a8b132071419
+		summarizeBy: count
+		sourceColumn: ETLLoadID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoadDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bb66c030-829f-4b13-aa56-a71768073c4e
+		summarizeBy: none
+		sourceColumn: LoadDate
+
+		variation Variation
+			isDefault
+			relationship: 9dc74ac0-3a73-4b6a-97ac-899a4410220f
+			defaultHierarchy: LocalDateTable_6264f6da-a76d-4a3e-94ac-7635969b45f9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 789feb60-ea8a-497f-9088-738b29998515
+		summarizeBy: none
+		sourceColumn: UpdateDate
+
+		variation Variation
+			isDefault
+			relationship: 573d9a78-e922-42cd-bbb7-767f6273a7bf
+			defaultHierarchy: LocalDateTable_69a4aa61-8005-44b8-a597-495cb0913b60.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProductSubcategory-b5d5bf1e-b690-417c-9c99-aa5195af8290 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-NVDOJHQ\SQLEXPRESS01", "ContosoRetailDW"),
+				    dbo_DimProductSubcategory = Source{[Schema="dbo",Item="DimProductSubcategory"]}[Data]
+				in
+				    dbo_DimProductSubcategory
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

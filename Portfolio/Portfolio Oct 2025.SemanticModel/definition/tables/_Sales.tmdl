@@ -1,0 +1,53 @@
+table _Sales
+	lineageTag: 4e03f7f4-54be-4533-b86c-4bc5ea592fbe
+
+	measure 'Total Sales' = SUM(FactSales[SalesAmount])
+		formatString: "£"#,0;-"£"#,0;"£"#,0
+		lineageTag: 0425a030-a507-478f-a8dd-ccd13d9dcf4b
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Total Profit' = SUM(FactSales[Profit])
+		formatString: "£"#,0;-"£"#,0;"£"#,0
+		lineageTag: d03026ad-ef5f-4b87-b207-76ac4acfe923
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Sales Average Unit Cost' = AVERAGE(FactSales[UnitCost])
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 52317729-047c-4ce1-8c4f-461060acd948
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Sales Average Unit Price' = AVERAGE(FactSales[UnitPrice])
+		formatString: "£"#,0;-"£"#,0;"£"#,0
+		lineageTag: 53bdfdd7-ef0c-4a92-add7-08d2bef94632
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Sales Quantity' = SUM(FactSales[SalesQuantity])
+		formatString: #,0
+		lineageTag: 792beedd-ba82-4fd0-8409-55eb1622061b
+
+	measure 'Sales Count' = COUNTROWS(FactSales)
+		formatString: 0
+		lineageTag: cfea99b2-c9aa-4980-937e-047db329b3f7
+
+	measure 'Sales Average Unit Profit' = _Sales[Sales Average Unit Price] - _Sales[Sales Average Unit Cost]
+		formatString: "£"#,0;-"£"#,0;"£"#,0
+		lineageTag: 73a8326b-ec37-4215-8b89-758d70bd0edc
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	partition _Sales-bf5f6534-1525-4877-9681-fc33b570e37e = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

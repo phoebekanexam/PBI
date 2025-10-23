@@ -1,0 +1,204 @@
+table FactOnlineSales
+	lineageTag: 461c7d4c-0d6d-4c29-ae2e-ccb4583aa431
+
+	column OnlineSalesKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 235cc2dd-7983-4f62-ae5d-281ef167c07b
+		summarizeBy: count
+		sourceColumn: OnlineSalesKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0c0c9300-6e36-4a5a-a52f-f64f219b99c0
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		variation Variation
+			isDefault
+			relationship: f07c3837-0aae-4698-be67-81f0b601f619
+			defaultHierarchy: LocalDateTable_773a23ac-9c50-4cda-beba-6f8b034541b7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 204cd865-feb5-4177-b719-f7217736d7ae
+		summarizeBy: count
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 74eafb3c-b640-47cb-a4bf-ae9a98939cbd
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3574ccf4-8fbd-4a1f-a498-a85d3fff3202
+		summarizeBy: count
+		sourceColumn: PromotionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 657f52f5-4dd3-4490-80c0-0c3cf906cb1a
+		summarizeBy: count
+		sourceColumn: CurrencyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a0070619-8391-412a-ab4b-1bff4397bd25
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: 03fe894d-4165-4ea1-9fc2-e3d0de0172e8
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 2642e18c-62ec-4fc8-85c4-17490c2f30e0
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: d4054a8a-361c-4d8b-8a08-b457852c6399
+		summarizeBy: sum
+		sourceColumn: SalesQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesAmount
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 82eb736b-a188-4df4-8cfe-3f07ba64568e
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column ReturnQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 182fce60-5a5e-4673-a272-bd29b2e0ca9d
+		summarizeBy: sum
+		sourceColumn: ReturnQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnAmount
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 000b5f7d-8237-49ab-8756-4e70f2ef5cbc
+		summarizeBy: sum
+		sourceColumn: ReturnAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column DiscountQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c86d61e-7fcd-4b35-97a7-d3c70986422f
+		summarizeBy: sum
+		sourceColumn: DiscountQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiscountAmount
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: be392d02-4dbd-45c9-93aa-3160561df5e2
+		summarizeBy: sum
+		sourceColumn: DiscountAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column TotalCost
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: fc80ff62-8687-401a-9f44-4f2104763177
+		summarizeBy: sum
+		sourceColumn: TotalCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column UnitCost
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: a18d76e9-12f4-4e75-be89-4d7223529f4b
+		summarizeBy: sum
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column UnitPrice
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: aef9e53f-142e-4b99-830b-cc542361d201
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column ETLLoadID
+		dataType: int64
+		formatString: 0
+		lineageTag: 82c5a5b8-ed3f-4035-aeda-93e7c43008ed
+		summarizeBy: count
+		sourceColumn: ETLLoadID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactOnlineSales-36957d6c-0d1d-4dc7-b26f-b9518fbc93b9 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-NVDOJHQ\SQLEXPRESS01", "ContosoRetailDW"),
+				    dbo_FactOnlineSales = Source{[Schema="dbo",Item="FactOnlineSales"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_FactOnlineSales,{"DimCustomer", "DimDate", "DimProduct", "DimPromotion", "DimStore", "DimCurrency", "LoadDate", "UpdateDate"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
